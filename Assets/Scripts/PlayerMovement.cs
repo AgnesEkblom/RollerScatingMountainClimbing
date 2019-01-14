@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool Lag;
     public Groundcheck GC;
 
-
+    
 
     private void Awake() {
         rb2D = GetComponent<Rigidbody2D>();

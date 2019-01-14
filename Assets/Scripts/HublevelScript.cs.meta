@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8ea2309e30d056c4cb8570b79bc7e6cc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - btnTexture: {instanceID: 0}
+  - Spawnpackage: {fileID: 1878220962824770, guid: 73b7d115ad7d452419c8c70e30c9b740,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
