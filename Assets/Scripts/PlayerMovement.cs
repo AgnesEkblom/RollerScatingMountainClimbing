@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     public float speed;
 
     
-    Rigidbody2D rb2D;
+    public Rigidbody2D rb2D;
 
     
     [Header("Jumping")]
