@@ -16,7 +16,7 @@ public class SpawnScript : MonoBehaviour {
     // Use this for initialization
     public void Awake() {
         Health = 5;
-        Levelname = 0;
+        Levelname = 1;
     }
     void Start () {
         PM = GetComponent<PlayerMovement>();

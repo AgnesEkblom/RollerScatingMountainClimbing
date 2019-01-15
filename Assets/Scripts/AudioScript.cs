@@ -15,18 +15,17 @@ public class AudioScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
     void PlayBackgroundMusic() {
 
         int randomClip = Random.Range(0, Backgroundmusic.Length);
-        AudioSource source = gameObject.AddComponent<AudioSource>();
+        AudioSource BGMusic = gameObject.AddComponent<AudioSource>();
 
-        source.clip = Backgroundmusic[randomClip];
-        source.outputAudioMixerGroup = output;
-        print("ey");
-        source.Play();
+        BGMusic.clip = Backgroundmusic[randomClip];
+        BGMusic.outputAudioMixerGroup = output;
+        BGMusic.Play();
 
     }
 }
