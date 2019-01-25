@@ -75,9 +75,9 @@ public class HublevelScript : MonoBehaviour {
         }
     }
     public IEnumerator LoadScene() {
+        Instantiate(Spawnpackage, new Vector3(0, 0, 0), Quaternion.identity);
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Level);
-        Instantiate(Spawnpackage, new Vector3(0, 0, 0), Quaternion.identity);
 
         while (!asyncLoad.isDone) {
             yield return null;

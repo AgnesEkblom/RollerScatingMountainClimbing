@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Jumping")]
     public int Doublejump;
     public float JumpHeight;
-    public bool Lag;
+
     public Groundcheck GC;
 
     
@@ -22,27 +22,28 @@ public class PlayerMovement : MonoBehaviour {
     private void Awake() {
         rb2D = GetComponent<Rigidbody2D>();
         GC = GetComponentInChildren<Groundcheck>();
-        Lag = true;
+   
 
     } 
     void FixedUpdate(){
 
-        if (GC.GroundContact == true) {
-            if ((Input.GetKey("a") || Input.GetKey("d"))) {
+        if (GC.GroundContact == true)
+        {
+
+
+
+            if ((Input.GetKey("a") || Input.GetKey("d")))
+            {
                 print("but its the slow horizontal movement, that REALLY drives them insane");
-                rb2D.velocity = new Vector2(0, 0);//Stannar spelaren innan boosten för att motverka att tröghet i spelarens rörelser ska kvarvara
+                //  rb2D.velocity = new Vector2(0, 0);//Stannar spelaren innan boosten för att motverka att tröghet i spelarens rörelser ska kvarvara
                 HorizontalMovement();
 
-                Lag = false;
             } //Rör horisontellt
 
         }
-        if (Input.GetKeyUp("a") || Input.GetKeyUp("d")) {
 
-            StartCoroutine(LagGenerator());
-        } //Starta LagGenerator
 
-        else if (Input.GetKeyDown("space") && Doublejump < 2 && Lag == true) {
+         if (Input.GetKeyDown("space") && Doublejump < 2) {
             print("jump betch");
             Jump();
         } //Starta Jump
@@ -67,13 +68,5 @@ public class PlayerMovement : MonoBehaviour {
 
     }  //Sköter det normala hoppet, även doublejump
 
-    IEnumerator LagGenerator() {
-
-        Lag = false;
-        yield return new WaitForSeconds(0.3f);
-        Lag = true;
-        yield return null;
-
-    } //Sköter laggen
 
 }
