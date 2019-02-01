@@ -33,10 +33,11 @@ Transform:
   m_GameObject: {fileID: 1028027830934978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 4380798409517698}
   - {fileID: 4572521750383119343}
+  - {fileID: 4561219526619804727}
   m_Father: {fileID: 4561513733234314}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fb1c8ce5ca98c9843a9e59a75f5be969, type: 2}
+  - {fileID: 2100000, guid: 4fc0de40f2db9aa41a1cef1960aa50fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,10 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be02b36ad09dbf84f8b61f15b63f27e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 15
   rb2D: {fileID: 50823506343107250}
   Doublejump: 0
-  JumpHeight: 15
+  JumpHeight: 75
   GC: {fileID: 114602108380858586}
 --- !u!50 &50823506343107250
 Rigidbody2D:
@@ -114,10 +115,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.7854982
-  m_LinearDrag: 1
+  m_Mass: 1.7853982
+  m_LinearDrag: 0.5
   m_AngularDrag: 1
-  m_GravityScale: 5
+  m_GravityScale: 10
   m_Material: {fileID: 6200000, guid: 71b845175232d824c9783b494f5b2ed7, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -212,7 +213,7 @@ GameObject:
   - component: {fileID: 114725394874731058}
   m_Layer: 0
   m_Name: Spawnpackage
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,7 +230,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4518990214563194}
-  - {fileID: 4561219526619804727}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -300,7 +300,7 @@ BoxCollider2D:
     adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_AutoTiling: 1
   serializedVersion: 2
   m_Size: {x: 0.7472081, y: 0.20787954}
   m_EdgeRadius: 0
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GroundContact: 0
-  PM: {fileID: 0}
+  PM: {fileID: 114788258162816780}
 --- !u!50 &50583690317400484
 Rigidbody2D:
   serializedVersion: 4
@@ -336,9 +336,9 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &5059011709849141704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,7 +506,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4561513733234314}
+    m_TransformParent: {fileID: 4518990214563194}
     m_Modifications:
     - target: {fileID: 3127397582248880718, guid: 6af539bb4393afb4a8c7c8504246fec5,
         type: 3}
@@ -551,7 +551,7 @@ PrefabInstance:
     - target: {fileID: 5965988144557259110, guid: 6af539bb4393afb4a8c7c8504246fec5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5965988144557259110, guid: 6af539bb4393afb4a8c7c8504246fec5,
         type: 3}
@@ -583,11 +583,6 @@ PrefabInstance:
       propertyPath: PM
       value: 
       objectReference: {fileID: 114788258162816780}
-    - target: {fileID: 3920222586498331131, guid: 6af539bb4393afb4a8c7c8504246fec5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6af539bb4393afb4a8c7c8504246fec5, type: 3}
 --- !u!1 &5107497513534187295 stripped

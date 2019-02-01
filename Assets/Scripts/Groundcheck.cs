@@ -14,7 +14,7 @@ public class Groundcheck : MonoBehaviour {
 
     // Update is called once per frame
 
-    public void OnTriggerEnter2D (Collider2D other) {
+  /*  public void OnTriggerEnter2D (Collider2D other) {
         
         
         if (other.gameObject.tag=="Dirt") {
@@ -24,9 +24,26 @@ public class Groundcheck : MonoBehaviour {
         else if (other.gameObject.tag == "Bounce") {
             GroundContact = true;
         }
-        else {
+        else if (other.gameObject.tag!="Dirt") {
             GroundContact = false;
         }
 
-	}
+	}*/
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Dirt")
+            GroundContact = true;
+
+    }
+    public void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Dirt")
+            GroundContact = true;
+
+    }
+
+    public void OnTriggerExit2D (Collider2D other)
+    {
+        GroundContact = false;
+    }
 }
