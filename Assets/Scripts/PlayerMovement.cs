@@ -2,27 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour {
 
     [Header("Horizontal Movement")]
     public float speed;
-
+    public int JumpControl;
 
     public Rigidbody2D rb2D;
-
+    public int maxSpeed;
 
     [Header("Jumping")]
     public int Doublejump;
     public float JumpHeight;
 
     public Groundcheck GC;
+    public Animator A;
 
 
 
     private void Awake() {
         rb2D = GetComponent<Rigidbody2D>();
         GC = GetComponentInChildren<Groundcheck>();
-
+        A = GetComponent<Animator>();
 
     }
     void FixedUpdate() {
@@ -30,21 +32,22 @@ public class PlayerMovement : MonoBehaviour {
         //   rb2D.mass = 6f;
 
 
-        if (GC.GroundContact == true)
+        if (A.GetBool("isGrounded")==true)
         {
 
-        
+          
 
-        if ((Input.GetKey("a") || Input.GetKey("d")))
+      //  if ((Input.GetKey("a") || Input.GetKey("d")))
+        if (Input.GetButton("Horizontal"))
         {
-            //print("but its the slow horizontal movement, that REALLY drives them insane");
-            //  rb2D.velocity = new Vector2(0, 0);//Stannar spelaren innan boosten för att motverka att tröghet i spelarens rörelser ska kvarvara
+
             HorizontalMovement();
 
         }
             Doublejump = 0;//Rör horisontellt
 
         }
+
 
 
          if (Input.GetKeyDown("space") && Doublejump < 2) {
@@ -60,6 +63,11 @@ public class PlayerMovement : MonoBehaviour {
         Vector2 movement = new Vector2(moveHorizontal*speed, rb2D.velocity.y);
         
         rb2D.AddForce(movement * speed);
+
+        if (rb2D.velocity.magnitude> maxSpeed)
+        {
+            rb2D.velocity = rb2D.velocity.normalized * maxSpeed;
+        }
     }  //spelarens normala rörelser i sidled
     private void Jump() {
  //DoubleJump återställs vid groundcontact
@@ -67,7 +75,7 @@ public class PlayerMovement : MonoBehaviour {
 
         
   //     rb2D.velocity = new Vector2(rb2D.velocity.x, JumpHeight);
-       rb2D.AddRelativeForce(new Vector2(0,JumpHeight), ForceMode2D.Impulse);
+       rb2D.AddForce(new Vector2(0,JumpHeight+((rb2D.velocity.x*rb2D.velocity.x)/30)), ForceMode2D.Impulse);
    
 
     }  //Sköter det normala hoppet, även doublejump

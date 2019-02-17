@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Groundcheck : MonoBehaviour {
     public bool GroundContact;
+    public bool Entered;
     public PlayerMovement PM;
+    public Animator A;
 	// Use this for initialization
 	void Start () {
         
         PM = GetComponentInParent<PlayerMovement>();
-
+        A = GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,18 +34,24 @@ public class Groundcheck : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Dirt")
-            GroundContact = true;
+            A.SetBool("isGrounded", true);
+
 
     }
     public void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Dirt")
-            GroundContact = true;
+            A.SetBool("isGrounded", true);
+
 
     }
 
     public void OnTriggerExit2D (Collider2D other)
     {
-        GroundContact = false;
+        A.SetBool("isGrounded", false);
+
     }
+
+
+ 
 }
