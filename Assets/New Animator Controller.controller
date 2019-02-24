@@ -14,7 +14,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -40,6 +40,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904eb08d8ba25f740b0b68523afe96e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Doublejump: 0
+  JumpHeight: 80
+  PM: {fileID: 0}
+  RB2D: {fileID: 0}
+  A: {fileID: 0}
+  Spawnpackage: {fileID: 1878220962824770, guid: 73b7d115ad7d452419c8c70e30c9b740,
+    type: 3}
+--- !u!114 &114865148858829992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ffd49cf53e8a1848a5150cfd85700f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1101 &1101272760883360914
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -50,7 +69,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: isGrounded
-    m_EventTreshold: 0
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102635930880958294}
   m_Solo: 0
@@ -130,7 +149,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101272760883360914}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 114865148858829992}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

@@ -5,19 +5,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    [Header("Horizontal Movement")]
+    [Header("Groundstate")]
     public float speed;
-    public int JumpControl;
-
-    public Rigidbody2D rb2D;
     public int maxSpeed;
 
-    [Header("Jumping")]
+    public Rigidbody2D rb2D;
+    
+
+    [Header("Airstate")]
     public int Doublejump;
     public float JumpHeight;
+    public float AirCTRL;
+    private Groundcheck GC;
+    private Animator A;
 
-    public Groundcheck GC;
-    public Animator A;
+
 
 
 
@@ -30,7 +32,7 @@ public class PlayerMovement : MonoBehaviour {
     void FixedUpdate() {
         //  Physics.gravity = new Vector2(0, -1.0F);
         //   rb2D.mass = 6f;
-
+       // VelocityValue = (rb2D.velocity.x  * rb2D.velocity.x);
 
         if (A.GetBool("isGrounded")==true)
         {
@@ -41,44 +43,44 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetButton("Horizontal"))
         {
 
-            HorizontalMovement();
+                float moveHorizontal = Input.GetAxis("Horizontal");
+                Vector2 movement = new Vector2(moveHorizontal * speed, rb2D.velocity.y);
 
-        }
+                rb2D.AddForce(movement);
+
+                if (rb2D.velocity.magnitude > maxSpeed)
+                {
+                    rb2D.velocity = rb2D.velocity.normalized * maxSpeed;
+                }
+
+            }
             Doublejump = 0;//Rör horisontellt
 
         }
 
 
 
-         if (Input.GetKeyDown("space") && Doublejump < 2) {
-            print("jump betch");
-            Jump();
+         if (Input.GetButtonDown("Jump") && Doublejump < 2) {
+
+           
+            rb2D.AddForce(new Vector2(0, JumpHeight + ((rb2D.velocity.x * rb2D.velocity.x) / 150)), ForceMode2D.Impulse);
+            Doublejump++;
+
+
+
         } //Starta Jump
+
+     /*   if (A.GetBool("isGrounded") == false && Input.GetButton("Horizontal"))
+        {
+            float moveHorizontalAir = Input.GetAxis("Horizontal");
+
+            rb2D.AddForce(new Vector2(moveHorizontalAir * speed*AirCTRL,0), ForceMode2D. Impulse);
+        }*/
+
 
     } //Styr spelarkontrollern
 
-    private void HorizontalMovement() {
-        
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(moveHorizontal*speed, rb2D.velocity.y);
-        
-        rb2D.AddForce(movement * speed);
 
-        if (rb2D.velocity.magnitude> maxSpeed)
-        {
-            rb2D.velocity = rb2D.velocity.normalized * maxSpeed;
-        }
-    }  //spelarens normala rörelser i sidled
-    private void Jump() {
- //DoubleJump återställs vid groundcontact
-        Doublejump++;
-
-        
-  //     rb2D.velocity = new Vector2(rb2D.velocity.x, JumpHeight);
-       rb2D.AddForce(new Vector2(0,JumpHeight+((rb2D.velocity.x*rb2D.velocity.x)/30)), ForceMode2D.Impulse);
-   
-
-    }  //Sköter det normala hoppet, även doublejump
 
 
 }

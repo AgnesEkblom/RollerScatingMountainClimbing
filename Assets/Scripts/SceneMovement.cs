@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class SceneMovement : MonoBehaviour
 {
-    public PlayerMovement PM;
+    
     public CameraMain C;
     public float vel;
+    public Vector3 Placetomoveto;
     // Start is called before the first frame update
     void Start()
     {
         
-        PM = GetComponentInParent<PlayerMovement>();
-      
+        C = GetComponentInParent<CameraMain>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-          vel = -PM.rb2D.velocity.x/1000;
+     
+        
+    
         Vector3 rotate = new Vector3(0, 1, 0);
-        transform.Rotate(vel * rotate);
+       transform.Rotate(((C.sortacameravelocity-10) * rotate)/1000);
     }
 }

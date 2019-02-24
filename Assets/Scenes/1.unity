@@ -363,6 +363,40 @@ PrefabInstance:
       propertyPath: m_EdgeRadius
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3920222586906123440, guid: 73b7d115ad7d452419c8c70e30c9b740,
+        type: 3}
+      propertyPath: cameraDistance
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920222586906123440, guid: 73b7d115ad7d452419c8c70e30c9b740,
+        type: 3}
+      propertyPath: speed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920222586906123440, guid: 73b7d115ad7d452419c8c70e30c9b740,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2047108666}
+    - target: {fileID: 3920222586906123440, guid: 73b7d115ad7d452419c8c70e30c9b740,
+        type: 3}
+      propertyPath: Startposition
+      value: 
+      objectReference: {fileID: 1893391854}
+    - target: {fileID: 3920222586906123440, guid: 73b7d115ad7d452419c8c70e30c9b740,
+        type: 3}
+      propertyPath: Goalposition
+      value: 
+      objectReference: {fileID: 2047108667}
+    - target: {fileID: 3920222586906123440, guid: 73b7d115ad7d452419c8c70e30c9b740,
+        type: 3}
+      propertyPath: RB2D
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 980754551, guid: 73b7d115ad7d452419c8c70e30c9b740, type: 3}
+      propertyPath: RB2D
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73b7d115ad7d452419c8c70e30c9b740, type: 3}
 --- !u!1 &858057073
@@ -394,7 +428,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2047108667}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &858057075
 TrailRenderer:
@@ -794,6 +828,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 685c02a3c1d0f234f9c4cff853f76506, type: 3}
+--- !u!4 &1893391854 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5965988143629095981, guid: 73b7d115ad7d452419c8c70e30c9b740,
+    type: 3}
+  m_PrefabInstance: {fileID: 686943384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2047108666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1028027830934978, guid: 73b7d115ad7d452419c8c70e30c9b740,
