@@ -6,21 +6,9 @@ using UnityEngine;
 public class Airstate : StateMachineBehaviour
 { 
 
-        public int Doublejump;
-        public float JumpHeight;
-    //    public Rigidbody2D rb2D;
-    public PlayerMovement PM;
-    public Rigidbody2D RB2D;
-    public Animator A;
-    public GameObject Spawnpackage;
 
 
     public void Awake() {
-
-
-        PM = Spawnpackage.GetComponentInChildren<PlayerMovement>();
-        RB2D = Spawnpackage.GetComponentInChildren<Rigidbody2D>();
-        A = Spawnpackage.GetComponentInParent<Animator>();
 
 
 

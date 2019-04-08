@@ -10,11 +10,15 @@ public class InLevel_GUI : MonoBehaviour
     public bool ButtonPressed = false;
     public bool BitchButton= false;
     public GameObject Spawnpackage;
+    public GameObject player;
+    public SpawnScript SpSc;
 
 
     private void Start() {
-        GameObject Spawnpackage = gameObject.GetComponent<GameObject>();
 
+        Spawnpackage = GameObject.FindGameObjectWithTag("Respawn");
+        player = GameObject.FindGameObjectWithTag("Player");
+        SpSc = player.GetComponent<SpawnScript>();
     }
     private void OnGUI() {
 
@@ -30,20 +34,17 @@ public class InLevel_GUI : MonoBehaviour
             }
             if (GUI.Button(new Rect(Xposition1, Yposition1, 150, 50), "Return to Main Menu")) {
                 ButtonPressed = false;
-                StartCoroutine(LoadHUB());
+   //             StartCoroutine(LoadHUB());
             }
-            if (GUI.Button(new Rect(0, 200, 20, 25), ";)")) {
-                BitchButton = true;
 
-            }
         }
-        if (BitchButton == true){
-            if (GUI.Button(new Rect(0, 200, 60, 25), "Betch")) {
-                BitchButton = false;
-            }
+
+        if (SpSc.SceneIsLoading == true)
+        {
+            print("nån sorts fadein/fadeout varför är gui så jävla KRÅNGLIGT");
         }
     }
-
+/*
     public IEnumerator LoadHUB() {
 
         Object.Destroy(Spawnpackage);
@@ -55,7 +56,7 @@ public class InLevel_GUI : MonoBehaviour
 
         }
 
-    }
+    }*/
 
 
 }

@@ -8,7 +8,10 @@ TagManager:
   - LevelFinish
   - Instadeath
   - 2Damage
-  - Bounce
+  - WindUpwards
+  - HotWindUpwards
+  - Goat
+  - personalBubbleOfGoat
   layers:
   - Default
   - TransparentFX
